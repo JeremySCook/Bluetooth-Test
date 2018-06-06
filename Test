@@ -1,0 +1,24 @@
+//Simple serial/Bluetooth testing routine
+//By Jeremy S. Cook
+
+void setup() {
+  Serial.begin(9600); //start serial communication
+  pinMode(13, OUTPUT);
+}
+
+char a; //bluetooth variable
+
+void loop() {
+  //bluetooth monitor
+  a=(Serial.read()); 
+  if (a=='1') //turn on light serial command
+  {
+    digitalWrite(13, HIGH);  //turn light on
+    Serial.println("1 - light on - command received"); //feedback to terminal
+  }
+  if (a=='0') //light off serial command
+  {
+    digitalWrite(13, LOW); //turn light off
+    Serial.println("0 - light off - command received"); //feedback to terminal
+  }
+}
